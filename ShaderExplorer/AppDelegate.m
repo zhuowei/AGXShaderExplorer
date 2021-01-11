@@ -164,6 +164,9 @@ static NSString* DisassembleShaderInstructions(NSData* instructionData) {
         device = MTLCreateSystemDefaultDevice();
         self.mtlDevice = device;
     }
+    if (!device.supportsDynamicLibraries) {
+        return @"Device doesn't support Metal dynamic libraries; please run on a newer iPhone/iPad/M1 Mac";
+    }
     NSError* error;
     NSData* data = CompileMetalLibrary(device, shader, &error);
     if (error) {
