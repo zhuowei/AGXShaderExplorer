@@ -134,6 +134,9 @@ static NSString* DisassembleShaderInstructions(NSData* instructionData) {
         return [GCDWebServerDataResponse responseWithText:
                 [strongSelf compileAndDisassembleShader:request.text]];
     }];
+    [self.webServer addGETHandlerForPath:@"/"
+                                filePath:[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"]
+                            isAttachment:false cacheAge:100000 allowRangeRequests:true];
     [self.webServer startWithPort:8080 bonjourName:nil];
     return YES;
 }

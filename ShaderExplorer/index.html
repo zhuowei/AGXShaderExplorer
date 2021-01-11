@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Apple Silicon shader explorer</title>
+<script>
+async function compileit() {
+  const src = document.getElementById("inputarea").value;
+  const response = await fetch("/compile", {
+    method: "POST",
+    body: src,
+    headers: {
+      "Content-Type": "text/plain"
+    }
+  });
+  const text = await response.text();
+  document.getElementById("outputarea").value = text;
+}
+</script>
+</head>
+<body>
+<textarea cols="80" rows="25" id="inputarea">
+int hello() {
+  return 42;
+}
+</textarea>
+<textarea cols="80" rows="25" id="outputarea"></textarea>
+<br>
+<button onclick="compileit()">Compile</button>
+<br>
+<p><a href="https://worthdoingbadly.com/shaderdisasm/">Shader explorer</a> for Apple Silicon GPUs, using AsahiLinux's <a href="https://github.com/AsahiLinux/gpu">disassembler</a>.</p>
+</body>
+</html>

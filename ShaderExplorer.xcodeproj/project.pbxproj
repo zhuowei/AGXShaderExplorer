@@ -15,6 +15,7 @@
 		C5F97AF525ABD27D00880847 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5F97AF325ABD27D00880847 /* LaunchScreen.storyboard */; };
 		C5F97AF825ABD27D00880847 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F97AF725ABD27D00880847 /* main.m */; };
 		C5F97B0425ABE1F200880847 /* disasm.c in Sources */ = {isa = PBXBuildFile; fileRef = C5F97B0325ABE1F200880847 /* disasm.c */; };
+		C5F97B0725ABEAC100880847 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C5F97B0625ABEAC100880847 /* index.html */; };
 		CD1568D731587FA8E730923B /* Pods_ShaderExplorer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF5DFE88FC72E4C169338C90 /* Pods_ShaderExplorer.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		C5F97AF625ABD27D00880847 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5F97AF725ABD27D00880847 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C5F97B0325ABE1F200880847 /* disasm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = disasm.c; path = "third_party/asahilinux-gpu/disasm/disasm.c"; sourceTree = SOURCE_ROOT; };
+		C5F97B0625ABEAC100880847 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		F692C0C61A4C848C526FCD2D /* Pods-ShaderExplorer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShaderExplorer.debug.xcconfig"; path = "Target Support Files/Pods-ShaderExplorer/Pods-ShaderExplorer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 				C5F97AF625ABD27D00880847 /* Info.plist */,
 				C5F97AF725ABD27D00880847 /* main.m */,
 				C5F97B0325ABE1F200880847 /* disasm.c */,
+				C5F97B0625ABEAC100880847 /* index.html */,
 			);
 			path = ShaderExplorer;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5F97AF525ABD27D00880847 /* LaunchScreen.storyboard in Resources */,
+				C5F97B0725ABEAC100880847 /* index.html in Resources */,
 				C5F97AF225ABD27D00880847 /* Assets.xcassets in Resources */,
 				C5F97AF025ABD27C00880847 /* Main.storyboard in Resources */,
 			);
