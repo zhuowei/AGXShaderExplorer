@@ -14,9 +14,12 @@
 		C5F97AF225ABD27D00880847 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5F97AF125ABD27D00880847 /* Assets.xcassets */; };
 		C5F97AF525ABD27D00880847 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5F97AF325ABD27D00880847 /* LaunchScreen.storyboard */; };
 		C5F97AF825ABD27D00880847 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F97AF725ABD27D00880847 /* main.m */; };
+		CD1568D731587FA8E730923B /* Pods_ShaderExplorer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF5DFE88FC72E4C169338C90 /* Pods_ShaderExplorer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A6B316558C59643C0D2D974 /* Pods-ShaderExplorer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShaderExplorer.release.xcconfig"; path = "Target Support Files/Pods-ShaderExplorer/Pods-ShaderExplorer.release.xcconfig"; sourceTree = "<group>"; };
+		AF5DFE88FC72E4C169338C90 /* Pods_ShaderExplorer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShaderExplorer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F97AE225ABD27C00880847 /* ShaderExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShaderExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F97AE525ABD27C00880847 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C5F97AE625ABD27C00880847 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -29,6 +32,7 @@
 		C5F97AF425ABD27D00880847 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5F97AF625ABD27D00880847 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5F97AF725ABD27D00880847 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F692C0C61A4C848C526FCD2D /* Pods-ShaderExplorer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShaderExplorer.debug.xcconfig"; path = "Target Support Files/Pods-ShaderExplorer/Pods-ShaderExplorer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,17 +40,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD1568D731587FA8E730923B /* Pods_ShaderExplorer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2879280390CB10EBEB6DE212 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F692C0C61A4C848C526FCD2D /* Pods-ShaderExplorer.debug.xcconfig */,
+				6A6B316558C59643C0D2D974 /* Pods-ShaderExplorer.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C5F97AD925ABD27C00880847 = {
 			isa = PBXGroup;
 			children = (
 				C5F97AE425ABD27C00880847 /* ShaderExplorer */,
 				C5F97AE325ABD27C00880847 /* Products */,
+				2879280390CB10EBEB6DE212 /* Pods */,
+				E37FF850640FAFE5F7FA8609 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +93,14 @@
 			path = ShaderExplorer;
 			sourceTree = "<group>";
 		};
+		E37FF850640FAFE5F7FA8609 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF5DFE88FC72E4C169338C90 /* Pods_ShaderExplorer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,9 +108,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C5F97AFB25ABD27D00880847 /* Build configuration list for PBXNativeTarget "ShaderExplorer" */;
 			buildPhases = (
+				1F05E81D95530362E66C3547 /* [CP] Check Pods Manifest.lock */,
 				C5F97ADE25ABD27C00880847 /* Sources */,
 				C5F97ADF25ABD27C00880847 /* Frameworks */,
 				C5F97AE025ABD27C00880847 /* Resources */,
+				F9022E6AD6BEB00EBA10C859 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,6 +166,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F05E81D95530362E66C3547 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShaderExplorer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9022E6AD6BEB00EBA10C859 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShaderExplorer/Pods-ShaderExplorer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShaderExplorer/Pods-ShaderExplorer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShaderExplorer/Pods-ShaderExplorer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C5F97ADE25ABD27C00880847 /* Sources */ = {
@@ -288,6 +357,7 @@
 		};
 		C5F97AFC25ABD27D00880847 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F692C0C61A4C848C526FCD2D /* Pods-ShaderExplorer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -306,6 +376,7 @@
 		};
 		C5F97AFD25ABD27D00880847 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A6B316558C59643C0D2D974 /* Pods-ShaderExplorer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
