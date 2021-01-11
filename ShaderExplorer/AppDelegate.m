@@ -10,6 +10,7 @@
 #import "GCDWebServerDataRequest.h"
 #import "GCDWebServerDataResponse.h"
 @import Metal;
+@import MachO;
 
 @interface AppDelegate ()
 @property (strong, nonatomic) GCDWebServer* webServer;
@@ -55,8 +56,52 @@ static NSData* CompileMetalLibrary(id<MTLDevice> device, NSString* programString
 }
 
 static NSData* ExtractInstructionData(NSData* metalDylibData) {
-    // TODO(zhuowei): Find the embedded Mach-O
-    return metalDylibData;
+    // Find the embedded object mach-o by looking for the second 0xfeedfacf
+    void* metalDylibDataPtr = (void*)metalDylibData.bytes;
+    void* metalDylibEndPtr = metalDylibDataPtr + metalDylibData.length;
+    uint32_t* ptr = metalDylibDataPtr;
+    int count = 0;
+    bool found = false;
+    while ((void*)ptr < metalDylibEndPtr) {
+        if (*ptr == 0xfeedfacf) {
+            if (++count == 2) {
+                found = true;
+                break;
+            }
+        }
+        ptr++;
+    }
+    if (!found) {
+        return nil;
+    }
+    // Find the __text segment and extract its offset and size
+    struct mach_header_64* mh = (struct mach_header_64*)ptr;
+    struct load_command* cmd = (struct load_command*)((uint8_t*)mh + sizeof(struct mach_header_64));
+    uint64_t textoff = 0;
+    uint64_t textsize = 0;
+    for (unsigned int index = 0; index < mh->ncmds; index++) {
+        switch (cmd->cmd) {
+            case LC_SEGMENT_64: {
+                struct segment_command_64* segCmd = (struct segment_command_64*)cmd;
+                struct section_64* sections = (struct section_64*)(((uint8_t*)cmd) + sizeof(struct segment_command_64));
+                for (unsigned int sindex = 0; sindex < segCmd->nsects; sindex++) {
+                    struct section_64* sec = sections + sindex;
+                    if (!strcmp(sec->sectname, "__text")) {
+                        textoff = sec->offset;
+                        textsize = sec->size;
+                    }
+                }
+                break;
+            }
+        }
+        cmd = (struct load_command*)((char*)cmd + cmd->cmdsize);
+    }
+    if (textsize == 0) {
+        return nil;
+    }
+    // create an NSData holding just the __text sectioh
+    return [metalDylibData subdataWithRange:
+            NSMakeRange((((void*)ptr) - metalDylibDataPtr) + textoff, textsize)];
 }
 
 static NSString* DisassembleShaderInstructions(NSData* instructionData) {
