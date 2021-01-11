@@ -14,6 +14,7 @@
 		C5F97AF225ABD27D00880847 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5F97AF125ABD27D00880847 /* Assets.xcassets */; };
 		C5F97AF525ABD27D00880847 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5F97AF325ABD27D00880847 /* LaunchScreen.storyboard */; };
 		C5F97AF825ABD27D00880847 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F97AF725ABD27D00880847 /* main.m */; };
+		C5F97B0425ABE1F200880847 /* disasm.c in Sources */ = {isa = PBXBuildFile; fileRef = C5F97B0325ABE1F200880847 /* disasm.c */; };
 		CD1568D731587FA8E730923B /* Pods_ShaderExplorer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF5DFE88FC72E4C169338C90 /* Pods_ShaderExplorer.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		C5F97AF425ABD27D00880847 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5F97AF625ABD27D00880847 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5F97AF725ABD27D00880847 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C5F97B0325ABE1F200880847 /* disasm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = disasm.c; path = "third_party/asahilinux-gpu/disasm/disasm.c"; sourceTree = SOURCE_ROOT; };
 		F692C0C61A4C848C526FCD2D /* Pods-ShaderExplorer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShaderExplorer.debug.xcconfig"; path = "Target Support Files/Pods-ShaderExplorer/Pods-ShaderExplorer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				C5F97AF325ABD27D00880847 /* LaunchScreen.storyboard */,
 				C5F97AF625ABD27D00880847 /* Info.plist */,
 				C5F97AF725ABD27D00880847 /* main.m */,
+				C5F97B0325ABE1F200880847 /* disasm.c */,
 			);
 			path = ShaderExplorer;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			files = (
 				C5F97AED25ABD27C00880847 /* ViewController.m in Sources */,
 				C5F97AE725ABD27C00880847 /* AppDelegate.m in Sources */,
+				C5F97B0425ABE1F200880847 /* disasm.c in Sources */,
 				C5F97AF825ABD27D00880847 /* main.m in Sources */,
 				C5F97AEA25ABD27C00880847 /* SceneDelegate.m in Sources */,
 			);

@@ -104,14 +104,27 @@ static NSData* ExtractInstructionData(NSData* metalDylibData) {
             NSMakeRange((((void*)ptr) - metalDylibDataPtr) + textoff, textsize)];
 }
 
+
+extern void
+agx_disassemble(void *_code, size_t maxlen, FILE *fp);
+
 static NSString* DisassembleShaderInstructions(NSData* instructionData) {
-    return @"Nope";
+    NSMutableData* instructionWithStop = [instructionData mutableCopy];
+    // Add a stop instruction to make agx_disassemble happy
+    static const char stopBytes[] = {0x88, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+    [instructionWithStop appendBytes:stopBytes length:sizeof(stopBytes)];
+    NSMutableData* outputBuf = [NSMutableData dataWithLength:0x100000];
+    FILE* outputFile = fmemopen(outputBuf.mutableBytes, outputBuf.length, "w");
+    
+    agx_disassemble((void*)instructionWithStop.bytes, instructionWithStop.length, outputFile);
+    return [NSString stringWithUTF8String:outputBuf.mutableBytes];
 }
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    setenv("ASAHI_VERBOSE", "1", true);
     // Override point for customization after application launch.
     self.webServer = [GCDWebServer new];
     __weak AppDelegate* weakSelf = self;
